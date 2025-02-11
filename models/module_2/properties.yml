@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: model_tbt
+    columns:
+      - name: order_id
+      - name: customer_id
+      - name: product
+      - name: quantity
+      - name: price
+      - name: total
