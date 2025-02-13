@@ -2,3 +2,7 @@ version: 2
 
 models:
   - name: customers
+    description: This table hols the whole information about customers
+    columns:
+      - name: customer_id
+        description: "{{ doc('customer_id')}}"
