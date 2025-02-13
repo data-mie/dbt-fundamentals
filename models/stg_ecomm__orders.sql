@@ -1,13 +1,13 @@
-with source as (  -- This is where you select data from your source table
+with source as (  
   select
     *
   from {{source("ecomm", "orders")}}
 ),
 
-final as (  -- Rename columns as needed
+final as (  
   select
     id as order_id,
-    *,  -- Have primary key as the first column
+    *, 
     created_at as ordered_at,
     status as order_status
   from source
@@ -15,4 +15,4 @@ final as (  -- Rename columns as needed
 
 select
   *
-from final    -- When debugging your code, you can change this to refer to any of the CTEs above
+from final    
