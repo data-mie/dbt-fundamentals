@@ -1,9 +1,7 @@
 with orders as (
-    select
-        id as order_id,
-        customer_id,
-        created_at as ordered_at
-    from raw.ecomm.orders
+  select
+      *
+  from {{ ref('stg_ecomm__orders') }}
 ), 
 
 customers as (
