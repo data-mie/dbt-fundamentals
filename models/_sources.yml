@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: sheets
+    database: raw
+    tables:
+      - name: customer_survey_responses
+  - name: ecomm
+    database: raw
+    tables:
+      - name: customers
+        description: Each record in this table represents a customer in our ecommerce application.
+        columns:
+          - name: id
+            description: '{{ doc("customer_id") }}'      
+      - name: orders
+        identifier: orders_us
+        description: Each record in this table represents an order in our ecommerce application.
+        
+      - name: deliveries  # This is new
+        description: Each record in this table represents an order delivery in our ecommerce application.
+
+models:
+  - name: stg_ecomm_customers
+    description: This table contains customers information
+
+    columns:
+      - name: id
+        description: The customer ID
+  
+  - name: stg_ecomm_orders
+    description: This table contains orders information
+
+    columns:
+      - name: id
+        description: The order ID
+
+  - name: deliveries
+    description: This table contains delivery information
+
+    colums: 
