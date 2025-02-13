@@ -1,20 +1,20 @@
 with orders as (
     select
-        id as order_id,
+        order_id,
         customer_id,
-        created_at as ordered_at
-    from raw.ecomm.orders
+        ordered_at
+    from {{ref('stg_ecomm__orders')}}
 ), 
 
 customers as (
     select
-        id as customer_id,
+        customer_id,
         first_name,
         last_name,
         email,
         address,
         phone_number
-    from raw.ecomm.customers
+    from {{ref('stg_ecomm__customers')}}
 ),
 
 customer_metrics as (
@@ -22,8 +22,10 @@ customer_metrics as (
         customer_id,
         count(*) as count_orders,
         min(ordered_at) as first_order_at,
-        max(ordered_at) as most_recent_order_at
-    from orders
+        max(ordered_at) as most_recent_order_at,
+        avg(delivery_time_from_collection) as average_delivery_time_from_collection,
+avg(delivery_time_from_order) as average_delivery_time_from_order
+    from {{ref('orders')}}
     group by 1
 
 ),
