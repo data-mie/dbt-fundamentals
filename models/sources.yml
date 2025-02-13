@@ -14,3 +14,8 @@ sources:
         description: Each record in this table represents an order in our ecommerce application.
       - name: deliveries  # This is new
         description: Each record in this table represents an order delivery in our ecommerce application.
+  
+  - name: sheets
+    database: raw
+    tables:
+      - name: customer_survey_responses
