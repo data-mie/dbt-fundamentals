@@ -1,14 +1,15 @@
 with source as (
   select
-      *
-  from {{ source('ecomm', 'deliveries') }}
+    *
+  from {{ source('ecomm', 'orders') }}
 ),
 
 renamed as (
   select
-    id as delivery_id,
+    id as order_id,
     *,
-    status as delivery_status
+    created_at as ordered_at,
+    status as order_status
   from source
 ),
 
