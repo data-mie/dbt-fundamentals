@@ -2,3 +2,7 @@ version: 2
 
 models:
   - name: customers
+    description: each record is a customer.
+    columns:
+      - name: customer_id
+        description: '{{ doc("customer_id") }}'

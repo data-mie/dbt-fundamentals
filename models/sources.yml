@@ -5,3 +5,16 @@ sources:
     database: raw
     tables:
       - name: customer_survey_responses
+  
+  - name: ecomm
+    database: raw
+    tables:
+      - name: customers
+        description: each record is a customer
+      - name: orders
+        description: each record is an order
+        identifier: orders_us
+      
+      - name: deliveries
+        database: raw
+        
