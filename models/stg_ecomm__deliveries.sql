@@ -6,9 +6,9 @@ with source as (
 
   renamed as (
     select
-      id as delivery_id,
-      *,
-      status as delivery_status
+        *,
+        id as delivery_id,
+        status as delivery_status
     from source
   ),
 
