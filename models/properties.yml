@@ -6,3 +6,26 @@ models:
     columns:
       - name: customer_id
         description: '{{ doc("customer_id") }}'
+        tests:
+          - unique
+          - not_null
+      - name: average_delivery_time_from_order 
+        tests:
+          - test_greater_than_zero
+      - name: average_delivery_time_from_collection 
+        tests:
+          - test_greater_than_zero
+  
+  - name: orders
+    description: your orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null  
+      - name: delivery_time_from_order
+        tests:
+          - test_greater_than_zero 
+      - name: delivery_time_from_collection
+        tests:
+          - test_greater_than_zero 
