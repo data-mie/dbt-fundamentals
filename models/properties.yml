@@ -2,3 +2,17 @@ version: 2
 
 models:
   - name: customers
+    description : each record represents a customer
+    columns :
+      - name: customer_id
+        description: A unique customer ID from our ecommerce application.
+      - name: first_name
+        description: A customer's first name.
+      - name: last_name
+        description: A customer's last name.
+      - name: count_orders
+        description: The number of orders a customer has had all-time.
+      - name: first_order_at
+        description: The timestamp of a customer's first order.
+      - name: most_recent_order_at
+        description: The timestamp of a customer's most recent order.
