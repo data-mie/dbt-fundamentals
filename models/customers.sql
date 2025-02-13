@@ -1,20 +1,20 @@
 with orders as (
     select
-        id as order_id,
+        order_id,
         customer_id,
-        created_at as ordered_at
-    from raw.ecomm.orders
+        ordered_at
+    from {{ ref('stg_ecomm__orders') }}
 ), 
 
 customers as (
     select
-        id as customer_id,
+        customer_id,
         first_name,
         last_name,
         email,
         address,
         phone_number
-    from raw.ecomm.customers
+    from {{ ref('stg_ecomm__customers') }}
 ),
 
 customer_metrics as (
