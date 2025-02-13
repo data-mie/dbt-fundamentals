@@ -22,3 +22,5 @@ final as (
 select
   *
 from final
+
+-- {{ source('ecomm', 'customers') }}
