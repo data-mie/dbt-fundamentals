@@ -12,7 +12,7 @@ customers as (
         email,
         address,
         phone_number
-    from raw.ecomm.customers
+    from {{ ref('stg_ecomm__customers') }}
 ),
 
 customer_metrics as (
