@@ -19,3 +19,10 @@ sources:
             description: '{{ doc("customer_id") }}'
       - name: deliveries
         description: All deliveries in ecomm
+  - name: sheets
+    database: raw
+    tables:
+      - name: customer_survey_responses
+        columns:
+          - name: survey_date
+          - name: satisfaction_score
