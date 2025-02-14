@@ -21,7 +21,7 @@ models:
         description: The timestamp of a customer's most recent order.
   - name: orders
     columns:
-      - name: orders_id
+      - name: order_id
         description: The id number  customer has had all-time.
         tests:
           - unique
