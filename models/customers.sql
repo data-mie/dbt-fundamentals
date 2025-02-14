@@ -44,11 +44,11 @@ joined as (
         customer_metrics.most_recent_order_at,
         customer_metrics.average_delivery_time_from_order,
         customer_metrics.average_delivery_time_from_collection,
-        {% for days in [30, 90, 360] %}
+        {% for days in [30, 90, 360] -%}            -- Added "-" after statement to clear whitespaces
         count_orders_last_{{ days }}_days
-        {% if not loop.last %},{% endif %}
-        {% endfor %}
-            from customers
+        {%- if not loop.last %},{% endif %}         -- Added "-" before statement to clear whitespaces
+        {%- endfor %}                               -- Added "-" before statement to clear whitespaces
+    from customers
     left join customer_metrics on (
         customers.customer_id = customer_metrics.customer_id)
     left join survey_responses on (
