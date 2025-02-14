@@ -1,28 +1,37 @@
-with
-    customers as (select * from {{ ref("customers") }}),
+with customers as (
+    select
+        *
+    from {{ ref('customers') }}
+),
 
-    seven_weeks as (
-        select distinct customer_id
-        from {{ ref("orders") }}
-        where ordered_at > current_date - 49
-    ),
+seven_week_customers as (
+    select
+        *
+    from {{ ref('_seven_week_active_customers') }}
+), 
 
-    half_year as (
-        select
-            customer_id,
-            round(avg(total_amount), 2) as avg_order_amount,
-            count(*) as order_count
-        from {{ ref("orders") }}
-        where ordered_at > current_date - 180
-        group by 1
+customer_metrics as (
+    select 
+        *
+    from {{ ref('_6_month_customer_order_metrics') }}
+),
+
+final as (
+    select
+        customers.customer_id,
+        customers.first_name,
+        customers.last_name,
+        customer_metrics.avg_order_amount,
+        customer_metrics.order_count
+    from customers
+    left join customer_metrics on (
+        customers.customer_id = customer_metrics.customer_id
     )
+    inner join seven_week_customers on (
+        customers.customer_id = seven_week_customers.customer_id
+    )
+)
 
-select
-    customers.customer_id,
-    customers.first_name,
-    customers.last_name,
-    half_year.avg_order_amount,
-    half_year.order_count
-from customers
-left join half_year on (customers.customer_id = half_year.customer_id)
-inner join seven_weeks on (customers.customer_id = seven_weeks.customer_id)
+select 
+    *
+from final
