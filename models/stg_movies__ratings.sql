@@ -1,23 +1,11 @@
-{{ config(materialized='table', cluster_by=['user_id'])}}
+{{ config(materialized="table", cluster_by=["user_id"]) }}
 
-with source as (
-    select
-        *
-    from {{ source('movies', 'ratings') }}
-),
+with
+    source as (select * from {{ source("movies", "ratings") }}),
 
-renamed as (
-    select
-        *
-    from source
-),
+    renamed as (select * from source),
 
-final as (
-    select
-        *
-    from renamed
-)
+    final as (select * from renamed)
 
-select
-    *
+select *
 from final
