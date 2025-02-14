@@ -17,3 +17,9 @@ sources:
     database: raw
     tables:
       - name: customer_survey_responses
+        #TODO description: 
+  - name: movies
+    database: raw
+    tables: 
+      - name: ratings
+        #TODO description: 
