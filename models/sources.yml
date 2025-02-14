@@ -14,3 +14,16 @@ sources:
         description : each record represents a order information
       - name : deliveries
         description : each record represents a order delivery
+
+
+  - name : sheets
+    database : raw
+    tables : 
+      - name : customer_survey_responses
+        description : each record represents a survey response from customer
+  
+  - name : movies
+    database : raw
+    tables :
+      - name : ratings
+        description : each record represents a movie ratings by user
