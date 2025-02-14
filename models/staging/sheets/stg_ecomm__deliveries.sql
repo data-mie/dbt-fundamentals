@@ -1,23 +1,20 @@
 with source as (
-    select 
-        * 
+    select *
     from {{ source('ecomm', 'deliveries') }}
 ),
 
 renamed as (
     select
-        id as delivery_id,
         *,
-        status as delivery_status,
+        id as delivery_id,
+        status as delivery_status
     from source
 ),
 
 final as (
-    select
-        *
+    select *
     from renamed
 )
 
-select 
-    * 
+select *
 from final

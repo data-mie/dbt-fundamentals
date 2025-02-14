@@ -6,8 +6,7 @@
 }}
 
 with source as (
-    select 
-    * 
+    select *
     from {{ source('movies', 'ratings') }}
 ),
 
@@ -18,9 +17,8 @@ renamed as (
         rating,
         timestamp
     from source
-    where movie_id=1210
+    where movie_id = 1210
 )
 
-select 
-* 
+select *
 from renamed

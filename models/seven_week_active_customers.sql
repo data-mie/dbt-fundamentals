@@ -15,25 +15,22 @@
 -- refactoring
 
 with customers as (
-    select
-    *
+    select *
     from {{ ref('customers') }}
 ),
 
 recent_orders as (
-    select distinct 
-        customer_id
+    select distinct customer_id
     from {{ ref('orders') }}
     where ordered_at > current_date - 49
 ),
 
 order_stats as (
-    select
-    *
+    select *
     from {{ ref('orders_stats') }}
 )
 
-select 
+select
     customers.customer_id,
     customers.first_name,
     customers.last_name,
@@ -42,4 +39,3 @@ select
 from customers
 left join order_stats on (customers.customer_id = order_stats.customer_id)
 inner join recent_orders on (customers.customer_id = recent_orders.customer_id)
-
