@@ -1,7 +1,16 @@
 version: 2
 
 sources:
-  - name: sheets
+  - name: ecomm
     database: raw
     tables:
-      - name: customer_survey_responses
+      - name: customers
+        description: This record represents customers.
+        columns:
+          - name: id
+            description: '{{ doc("customer_id") }}'
+      - name: orders
+        identifier: orders_us 
+        description: This record represents orders in the US.
+      - name: deliveries
+        description: This record represents an order delivery.
