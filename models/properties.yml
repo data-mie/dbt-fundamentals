@@ -30,4 +30,3 @@ models:
       - name: delivery_time_from_collection
         tests:
           - greater_than_zero
-      
