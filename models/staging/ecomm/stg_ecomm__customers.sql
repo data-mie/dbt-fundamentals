@@ -1,22 +1,19 @@
 with source as (
-    select
-        *
-    from {{source('ecomm', 'customers')}}
+    select *
+    from {{ source('ecomm', 'customers') }}
 ),
 
 renamed as (
     select
-        id as customer_id,
-        *
+        *,
+        id as customer_id
     from source
 ),
 
 final as (
-    select
-        *
+    select *
     from renamed
 )
 
-select
-    *
+select *
 from final

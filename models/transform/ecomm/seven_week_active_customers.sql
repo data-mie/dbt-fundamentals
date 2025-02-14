@@ -17,19 +17,17 @@ with customer as (
         customer_id,
         first_name,
         last_name
-    from {{ref('customers')}}
+    from {{ ref('customers') }}
 ),
 
 orders_last_six_months as (
-    select
-        *
-    from {{ref('orders_last_six_months')}}
+    select *
+    from {{ ref('orders_last_six_months') }}
 ),
 
 customers_with_orders_last_7_weeks as (
-    select
-        *
-    from {{ref('customers_with_orders_last_seven_weeks')}}
+    select *
+    from {{ ref('customers_with_orders_last_seven_weeks') }}
 ),
 
 joined as (
@@ -46,6 +44,5 @@ joined as (
         on customer.customer_id = orders_last_six_months.customer_id
 )
 
-select
-    * 
+select *
 from joined
