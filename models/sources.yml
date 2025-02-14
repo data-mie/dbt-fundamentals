@@ -5,24 +5,24 @@ sources:
     database: raw
     tables:
       - name: customer_survey_responses
-
+        columns:
+          - name: survey_date
+          - name: satisfaction_score
   - name: ecomm
     database: raw
     tables:
       - name: orders
         identifier: orders_us
-        description: All orders in ecomm
+        description: All orders in ecomm raw source
       - name: customers
-        description: '{{ doc("customers") }}'
+        description: This table contains all customers in ecomm raw source
         columns: 
           - name: customer_id
             description: '{{ doc("customer_id") }}'
       - name: deliveries
         description: All deliveries in ecomm
-  - name: sheets
+  - name: movies
     database: raw
     tables:
-      - name: customer_survey_responses
-        columns:
-          - name: survey_date
-          - name: satisfaction_score
+      - name: ratings
+        description: All ratings in ecomm

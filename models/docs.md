@@ -1,6 +1,6 @@
 {% docs customers %}
 
-This table contains all customers in ecomm
+This table contains all customers in ecomm raw source
 
 {% enddocs %}
 
