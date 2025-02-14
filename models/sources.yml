@@ -19,3 +19,8 @@ sources:
           - name: customer_id
             description: "{{ doc('customer_id')}}"
       - name: deliveries
+
+  - name: movies
+    database: raw
+    tables:
+      - name: ratings
