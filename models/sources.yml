@@ -18,4 +18,8 @@ sources:
       - name: deliveries
         database: raw
 
+  - name: movies
+    database: raw
+    tables:
+      - name: ratings
         
