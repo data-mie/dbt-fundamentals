@@ -1,4 +1,4 @@
-{{ config(materialized="table" , cluster_by="rating") }}
+{{ config(materialized="table", cluster_by="rating") }}
 
 with
     source as (select * from {{ source("movies", "ratings") }}),
