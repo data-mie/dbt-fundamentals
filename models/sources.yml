@@ -19,3 +19,8 @@ sources:
     tables:
       - name: customer_survey_responses
         description: Each record in this table represents a customer survey responses in our ecommerce application.
+  - name: movies
+    database: raw
+    tables:
+      - name: ratings
+        description: Each record in this table represents a movie rating by a user
