@@ -18,3 +18,9 @@ sources:
         identifier: orders_us
         description: Each record in this table represents an order in our ecommerce application.
       - name: deliveries
+
+  - name: movies
+    database: raw
+    tables:
+    - name: ratings
+      description: Each record in this table represents a movie rating by a user
