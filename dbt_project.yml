@@ -19,4 +19,3 @@ clean-targets:
 models:
   dbt_training:
     +materialized: view
-    
