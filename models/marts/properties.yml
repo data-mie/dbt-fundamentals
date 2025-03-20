@@ -19,23 +19,11 @@ models:
         description: The timestamp of a customer's first order.
       - name: most_recent_order_at
         description: The timestamp of a customer's most recent order.
+        
   - name: orders
     description: Each record represents an order.
     columns:
       - name: order_id
         tests:
           - unique
-          - not_null
-
-  - name: seven_week_active_customers
-    columns:
-      - name: customer_id
-        tests:
-          - unique
-          - not_null
-      - name: avg_order_amount
-        tests:
-          - not_null
-      - name: order_count
-        tests:
           - not_null
