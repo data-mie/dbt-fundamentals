@@ -2,3 +2,23 @@ version: 2
 
 models:
   - name: customers
+    description: "Customer master data"
+    columns:
+      - name: customer_id
+        description: '{{ doc("customer_id")}}'
+      - name: first_name
+        description: "First name of customer"
+      - name: last_name
+        description: "Last name of customer"
+      - name: email
+        description: "Email address of customer"
+      - name: address
+        description: "Address of customer"
+      - name: phone_number
+        description: "Phone number of customer"
+      - name: count_orders
+        description: "Number of orders given by a customer. It is 0 if there is no record in order table for related customer."
+      - name: first_order_at
+        description: "The first order time of a customer as timestamp."
+      - name: most_recent_order_at
+        description: "The most recent order time of a customer as timestamp."
