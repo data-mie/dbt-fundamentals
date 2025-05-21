@@ -2,3 +2,23 @@ version: 2
 
 models:
   - name: customers
+    description: "One record per customer. Enriched with order metrics."
+    columns:
+      - name: customer_id
+        description: "{{ doc('customer_id') }}"
+      - name: first_name
+        description: "The customer's first name."
+      - name: last_name
+        description: "The customer's last name."
+      - name: email
+        description: "The customer's email address."
+      - name: address
+        description: "The customer's physical address."
+      - name: phone_number
+        description: "The customer's phone number."
+      - name: count_orders
+        description: "The number of orders the customer has placed."
+      - name: first_order_at
+        description: "The timestamp of the customer's first order."
+      - name: most_recent_order_at
+        description: "The timestamp of the customer's most recent order."

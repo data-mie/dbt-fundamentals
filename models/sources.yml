@@ -1,7 +1,28 @@
 version: 2
 
 sources:
-  - name: sheets
+  - name: ecomm
     database: raw
+    description: "Raw source data from the e-commerce platform."
     tables:
-      - name: customer_survey_responses
+      - name: customers
+        description: "Customer data including personal and contact information."
+        columns:
+          - name: id
+            description: '{{ doc("customer_id") }}'
+
+      - name: orders
+        identifier: orders_us
+        description: "E-commerce order data for US customers."
+        columns:
+          - name: id
+            description: "Primary key for each order."
+          - name: customer_id
+            description: "ID of the customer who placed the order."
+          - name: created_at
+            description: "Timestamp when the order was placed."
+          - name: status
+            description: "Current status of the order (e.g. shipped, cancelled)."
+      
+      - name: deliveries
+        description: Each record in this table represents an order delivery in our ecommerce application.
