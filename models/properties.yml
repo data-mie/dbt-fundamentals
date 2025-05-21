@@ -2,3 +2,17 @@ version: 2
 
 models:
   - name: customers
+    description: Contains all customers information.
+    columns:
+      - name: customer_id
+        description: "{{ doc('customer_id') }}"
+      - name: first_name
+        description: First name of the customer.
+      - name: last_name
+        description: Last name of the customer.
+      - name: count_orders
+        description: The number of orders a customer has had all-time.
+      - name: first_order_at
+        description: The timestamp of a customer's first order.
+      - name: most_recent_order_at
+        description: The timestamp of a customer's most recent order.
