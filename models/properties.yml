@@ -1,11 +1,21 @@
 version: 2
 
 models:
+  - name: orders
+    description: "Order master data"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
   - name: customers
     description: "Customer master data"
     columns:
       - name: customer_id
         description: '{{ doc("customer_id")}}'
+        tests:
+          - unique
+          - not_null
       - name: first_name
         description: "First name of customer"
       - name: last_name
