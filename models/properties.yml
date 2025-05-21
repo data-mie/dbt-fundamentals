@@ -1,11 +1,21 @@
 version: 2
 
 models:
+  - name: orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
   - name: customers
     description: Each record represents a customer.
     columns:
       - name: customer_id
         description: '{{ doc("customer_id") }}'
+        tests:
+          - unique
+          - not_null
       - name: first_name
         description: '{{ doc("first_name") }}'
       - name: last_name
