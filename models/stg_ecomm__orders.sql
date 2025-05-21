@@ -22,3 +22,7 @@ final as (
 select
   *
 from final
+
+
+-- {{ source('ecomm', 'customers') }}
+-- tabela customers aparece mesmo não sendo usada explicitamente 
