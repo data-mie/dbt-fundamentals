@@ -22,10 +22,21 @@ customer_metrics as (
         min(ordered_at) as first_order_at,
         max(ordered_at) as most_recent_order_at,
         avg(delivery_time_from_collection) as average_delivery_time_from_collection,
-        avg(delivery_time_from_order) as average_delivery_time_from_order
+        avg(delivery_time_from_order) as average_delivery_time_from_order,
+
+        {% for days in [30,90,360] %}
+            count_if(ordered_at > current_date() - {{ days }}) as count_orders_last_{{ days }}_days{{',' if not loop.last }}
+        {% endfor %}
+
     from orders
     group by 1
 
+),
+
+survey_responses as (
+    select
+        *
+    from {{ ref('stg_sheets__customer_survey_responses') }}
 ),
 
 joined as (
@@ -35,11 +46,20 @@ joined as (
         customer_metrics.first_order_at,
         customer_metrics.most_recent_order_at,
         customer_metrics.average_delivery_time_from_collection,
-        customer_metrics.average_delivery_time_from_order
+        customer_metrics.average_delivery_time_from_order,
+
+        survey_responses.satisfaction_score,
+        survey_responses.survey_date,
+
+        {% for days in [30,90,360] %}
+            customer_metrics.count_orders_last_{{ days }}_days{{',' if not loop.last }}
+        {% endfor %}
+
     from customers
-    left join customer_metrics on (
-        customers.customer_id = customer_metrics.customer_id
-    )
+    left join customer_metrics 
+        on customers.customer_id = customer_metrics.customer_id
+    left join survey_responses
+        on customers.email = survey_responses.customer_email    
 )
 
 select
