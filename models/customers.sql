@@ -1,3 +1,5 @@
+{% set lst_day_num=[30,90,360] %}
+
 with orders as (
     select
         *
@@ -24,8 +26,8 @@ customer_metrics as (
         avg(delivery_time_from_collection) as average_delivery_time_from_collection,
         avg(delivery_time_from_order) as average_delivery_time_from_order,
 
-        {% for days in [30,90,360] %}
-            count_if(ordered_at > current_date() - {{ days }}) as count_orders_last_{{ days }}_days{{',' if not loop.last }}
+        {%- for days in lst_day_num -%}
+        count_if(ordered_at > current_date() - {{ days }}) as count_orders_last_{{ days }}_days{{',' if not loop.last }}
         {% endfor %}
 
     from orders
@@ -51,8 +53,8 @@ joined as (
         survey_responses.satisfaction_score,
         survey_responses.survey_date,
 
-        {% for days in [30,90,360] %}
-            customer_metrics.count_orders_last_{{ days }}_days{{',' if not loop.last }}
+        {%- for days in lst_day_num -%}
+        customer_metrics.count_orders_last_{{ days }}_days{{',' if not loop.last }}
         {% endfor %}
 
     from customers
