@@ -3,7 +3,7 @@ with orders as (
         id as order_id,
         customer_id,
         created_at as ordered_at
-    from raw.ecomm.orders
+    from {{ ref('stg_ecomm__orders') }}
 ), 
 
 customers as (
@@ -14,7 +14,7 @@ customers as (
         email,
         address,
         phone_number
-    from raw.ecomm.customers
+    from {{ ref('stg_ecomm__customers') }}
 ),
 
 customer_metrics as (
