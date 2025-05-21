@@ -5,3 +5,10 @@ sources:
     database: raw
     tables:
       - name: customer_survey_responses
+  - name: ecomm
+    database: raw
+    tables:
+      - name: orders
+      - name: customers
+      - name: deliveries
+    
