@@ -16,3 +16,17 @@ models:
         description: The timestamp of a customer's first order.
       - name: most_recent_order_at
         description: The timestamp of a customer's most recent order.
+        
+  - name: orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
+  - name: customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
