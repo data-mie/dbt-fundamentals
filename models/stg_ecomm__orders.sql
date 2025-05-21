@@ -22,4 +22,5 @@ final as(
 select
 *
 from renamed
-    
+
+-- {{ source('ecomm', 'customers') }}  
