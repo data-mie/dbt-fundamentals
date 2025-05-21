@@ -1,6 +1,14 @@
 version: 2
 
 sources:
+  - name: ecomm
+    database: raw
+    tables:
+      - name: customers
+      - name: orders
+        identifier: orders_us
+      - name: deliveries
+
   - name: sheets
     database: raw
     tables:
