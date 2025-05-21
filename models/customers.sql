@@ -29,14 +29,13 @@ customer_metrics as (
         avg(delivery_time_from_collection) as average_delivery_time_from_collection,
         avg(delivery_time_from_order) as delivery_time_from_order,
         {% for period in [30, 90, 360] %}
-            count(case when datediff("days", ordered_at, current_date())<{{period}} then 1 else 0 end) as count_orders_last_{{ period }}_days
+            count(case when datediff(day, ordered_at, getdate())<{{period}} then 1 end) as count_orders_last_{{ period }}_days
             {% if not loop.last %}
                 ,
             {% endif %}
         {% endfor %}
     from orders
-    group by 1
-
+    group by customer_id
 ),
 
 
