@@ -5,3 +5,16 @@ sources:
     database: raw
     tables:
       - name: customer_survey_responses
+
+  - name: ecomm
+    database: raw
+    tables:
+      - name: orders
+        identifier: orders_us
+        description: records of orders
+      - name: customers
+        description: records of customers
+        columns:
+          - name: id
+            description: "{{ doc('customer_id') }}"
+      - name: deliveries

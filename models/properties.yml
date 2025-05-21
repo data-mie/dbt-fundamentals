@@ -2,3 +2,17 @@ version: 2
 
 models:
   - name: customers
+    description: "customers data"
+    columns:
+      - name: customer_id
+        description: "{{ doc('customer_id') }}"
+      - name: first_name
+        description: "first name of the customer"
+      - name: last_name
+        description: "last name of the customer"
+      - name: email
+        description: "email id of the customer"
+      - name: address
+        description: "address of the customer"
+      - name: phone_number
+        description: "phone number of the customer"
