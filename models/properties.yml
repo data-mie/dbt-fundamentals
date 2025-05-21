@@ -6,6 +6,9 @@ models:
     columns:
       - name: customer_id
         description: "{{ doc('customer_id') }}"
+        tests:
+          - unique
+          - not_null
       - name: first_name
         description: First name of the customer.
       - name: last_name
@@ -16,3 +19,10 @@ models:
         description: The timestamp of a customer's first order.
       - name: most_recent_order_at
         description: The timestamp of a customer's most recent order.
+  
+  - name: orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null  
