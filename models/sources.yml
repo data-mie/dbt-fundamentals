@@ -6,15 +6,18 @@ sources:
     database: raw
     tables:
       - name: customers
-        description: Each record in this table represents a customer in our ecommerce application. 
+        description: Each record in this table represents a customer in our ecommerce application.
         columns:
           - name: id
             description: '{{ doc("customer_id") }}'
       - name: orders
-        identifier: orders_us  # Use identifier if table's database identifier differs from the source table name
+        identifier: orders_us # Use identifier if table's database identifier differs from the source table name
         description: Each record in this table represents an order in our ecommerce application.
-      
+
       - name: deliveries
         description: Each record in this table represents an order delivery in our ecommerce application.
-      
 
+  - name: sheets
+    database: raw
+    tables:
+      - name: customer_survey_responses

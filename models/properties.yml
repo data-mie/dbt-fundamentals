@@ -6,6 +6,9 @@ models:
     columns:
       - name: customer_id
         description: A unique customer ID from our ecommerce application.
+        tests:
+          - unique
+          - not_null
       - name: first_name
         description: A customer's first name.
       - name: last_name
@@ -22,6 +25,9 @@ models:
     columns:
       - name: order_id
         description: Unique identifier for each order.
+        tests:
+          - unique
+          - not_null
       - name: customer_id
         description: ID of the customer who placed the order.
       - name: updated_at
