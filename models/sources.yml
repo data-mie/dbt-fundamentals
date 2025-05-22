@@ -8,7 +8,10 @@ sources:
   - name: ecomm
     database: raw
     tables:
-      - name: orders
       - name: customers
+        columns:
+          - name: id
+      - name: orders
+        identifier: orders_us
       - name: deliveries
     

@@ -1,15 +1,13 @@
-with 
+with source as (
 
-source as (
-
-    select * from {{ source('ecomm', 'customers') }}
-
+    select * 
+    from {{source('ecomm', 'customers') }}
 ),
 
 renamed as (
 
     select
-        id,
+        id as customer_id,
         first_name,
         last_name,
         email,

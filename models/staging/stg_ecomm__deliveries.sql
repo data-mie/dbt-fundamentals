@@ -1,9 +1,6 @@
-with 
-
-source as (
-
-    select * from {{ source('ecomm', 'deliveries') }}
-
+with source as (
+    select * 
+    from {{ source('ecomm', 'deliveries') }}
 ),
 
 renamed as (
