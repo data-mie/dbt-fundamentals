@@ -26,3 +26,23 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: int_orders_last_180_days
+    description: average order value, total order count in the last 180 days per customer.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: avg_order_amount
+        description: average order amount per customer in the last 180 days.
+      - name: order_count
+        description: total number of orders per the customer in the last 180 days.
+
+  - name: int_orders_last_49_days
+    description: Identifies customers who have placed at least one order in the past 7 weeks.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
