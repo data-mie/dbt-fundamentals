@@ -18,3 +18,4 @@ sources:
           - name: id
             description: "{{ doc('customer_id') }}"
       - name: deliveries
+        description: Each record in this table represents a delivery in our ecommerce application.
