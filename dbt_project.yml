@@ -19,4 +19,9 @@ clean-targets:
 models:
   dbt_training:
     +materialized: view
-    
+    marts:
+      +materialized: table
+      marketing:
+        +schema: marketing
+    intermediate:
+      +materialized: ephemeral  
