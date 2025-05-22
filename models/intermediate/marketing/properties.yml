@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_marketing__customer_order_stats
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: avg_order_amount
+      - name: order_count
+
+  - name: int_marketing__seven_week_active_customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
