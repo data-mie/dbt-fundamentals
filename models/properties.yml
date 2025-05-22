@@ -2,3 +2,15 @@ version: 2
 
 models:
   - name: customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+  - name: orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+          
