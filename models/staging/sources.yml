@@ -16,6 +16,7 @@ sources:
         description: Each record in this table represents an order in our ecommerce application.
       
       
+      
   - name: sheets
     database: raw
     tables:
