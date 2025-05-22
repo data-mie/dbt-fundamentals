@@ -19,3 +19,9 @@ clean-targets:
 models:
   dbt_training:
     +materialized: view
+    marts:
+      +materialized: table  # Materialize all marts as tables
+      marketing:
+        +schema: marketing  # Marketing marts are built in the marketing schema
+    intermediate:
+      +materialized: ephemeral  # All intermediate models as ephemerals
