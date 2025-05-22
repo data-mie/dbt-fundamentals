@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: seven_week_active_customers
+    description: |
+      Final marketing mart model that combines customer order stats with recent purchase activity.
+    columns:
+      - name: customer_id
+        description: Unique identifier for each customer.
+        tests:
+          - unique
+          - not_null
+      - name: avg_order_amount
+        description: Average order amount for the customer over the last 180 days.
+        tests:
+          - not_null
+      - name: order_count
+        description: Total number of orders placed by the customer in the last 180 days.
+        tests:
+          - not_null
