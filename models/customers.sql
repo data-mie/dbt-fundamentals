@@ -3,7 +3,7 @@ with orders as (
         id as order_id,
         customer_id,
         created_at as ordered_at
-    from raw.ecomm.orders
+    from raw.ecomm.orders_us
 ), 
 
 customers as (
